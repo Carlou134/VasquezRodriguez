@@ -19,14 +19,14 @@ public class ProyectoController {
     @Autowired
     private IProyectoService vrPs;
     //Registrar
-    @PostMapping
+    @PostMapping("/registrar")
     public void registrar(@RequestBody ProyectoDTO vrdto) {
         ModelMapper vrm = new ModelMapper();
         Proyecto vrp = vrm.map(vrdto, Proyecto.class);
         vrPs.insert(vrp);
     }
     //listar
-    @GetMapping
+    @GetMapping("/listar")
     public List<ProyectoDTO> listar() {
         return vrPs.vrlist().stream().map(x->{
             ModelMapper vrm=new ModelMapper();

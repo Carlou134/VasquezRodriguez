@@ -18,14 +18,14 @@ public class VehiculosController {
     @Autowired
     private IVehiculosService vrVs;
     //Registrar
-    @PostMapping
+    @PostMapping("/registrar")
     public void registrar(@RequestBody VehiculosDTO vrdto) {
         ModelMapper vrm = new ModelMapper();
         Vehiculos vrp = vrm.map(vrdto, Vehiculos.class);
         vrVs.insert(vrp);
     }
     //listar
-    @GetMapping
+    @GetMapping("/listar")
     public List<VehiculosDTO> listar() {
         return vrVs.vrlist().stream().map(x->{
             ModelMapper vrm=new ModelMapper();

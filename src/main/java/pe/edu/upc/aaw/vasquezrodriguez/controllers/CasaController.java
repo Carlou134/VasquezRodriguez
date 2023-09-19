@@ -18,14 +18,14 @@ public class CasaController {
     @Autowired
     private ICasaService vrcS;
     //Registrar
-    @PostMapping
+    @PostMapping("/registrar")
     public void registrar(@RequestBody CasaDTO vrdto) {
         ModelMapper vrm = new ModelMapper();
         Casa vrp = vrm.map(vrdto, Casa.class);
         vrcS.insert(vrp);
     }
     //listar
-    @GetMapping
+    @GetMapping("/listar")
     public List<CasaDTO> listar() {
         return vrcS.vrlist().stream().map(x->{
             ModelMapper vrm=new ModelMapper();
